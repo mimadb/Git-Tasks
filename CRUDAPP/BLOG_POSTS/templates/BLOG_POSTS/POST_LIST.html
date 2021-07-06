@@ -1,0 +1,29 @@
+<head>
+    <title>Blog List</title>
+</head>
+<body>
+<h2>List of Blog Posts:</h2>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>View</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for blogs in blog_list %}
+        <tr>
+            <td>{{ blogs.name }}</td>
+            <td><a href="{% url 'blogread' blogs.id %} ">View</a></td>
+            <td><a href="{% url 'blogupdate' blogs.id %} ">Update</a></td>
+            <td><a href="{% url 'blogdelete' blogs.id %} ">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{% url 'blogcreate' %} ">Write a New Blog Post</a>
+</body>
+</html>
